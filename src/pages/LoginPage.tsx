@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser, UserData } from "../context";
 import { handleUserLogin } from "../utils/ApiCallsAuth";
@@ -8,6 +8,13 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const Navigate = useNavigate();
   const { login, user } = useUser();
+
+  useEffect(() => {
+    document.title = "Login";
+    if (user) {
+      Navigate("/home");
+    }
+  }, [Navigate, user]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,8 +32,13 @@ export default function LoginPage() {
             email: response.email,
             cart: cartitem,
           };
-          console.log(response, "response");
-          console.log(userdata, "userdata");
+          // localStorage.setItem("name", response.name);
+          // localStorage.setItem("email", response.email);
+          // localStorage.setItem("profilePic", response.profilePic);
+          // localStorage.setItem("username", response.username);
+          // localStorage.setItem("password", response.password);
+          // localStorage.setItem("cart", JSON.stringify(cartitem));
+          localStorage.setItem("user", JSON.stringify(userdata));
           login(userdata);
           Navigate("/home");
           console.log(user, "user");

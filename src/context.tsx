@@ -12,13 +12,17 @@ export type cartItem = {
   quantity: number;
 };
 
+export type cartItems = {
+  items: cartItem[];
+};
+
 export interface UserData {
   name: string;
   profilePic: string;
   username: string;
   password: string;
   email: string;
-  cart: cartItem[];
+  cart: cartItems;
 }
 
 interface UserContextType {
@@ -27,7 +31,7 @@ interface UserContextType {
   login: (userData: UserData) => void;
   logout: () => void;
   updateCart: (cart: cartItem[]) => void;
-  getCart: () => cartItem[];
+  getCart: () => cartItems["items"];
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -47,12 +51,12 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({
 
   const updateCart = (cart: cartItem[]) => {
     if (user) {
-      setUser({ ...user, cart });
+      setUser({ ...user, cart: { items: cart } });
     }
   };
 
   const getCart = () => {
-    return user?.cart || [];
+    return user?.cart.items || [];
   };
 
   const contextValue: UserContextType = {

@@ -12,6 +12,10 @@
           {
             "itemId": "1",
             "quantity": 1
+          },
+          {
+            "itemId": "2",
+            "quantity": 1
           }
         ]
       }
@@ -134,7 +138,7 @@
       "description": "What does it feel like to witness climate change playing out in real-time? #notcool. Sound the alarm with our Women's Climate Change T-shirt, printed on organic cotton in our Carbon Neutral factory. Plus, when it's worn out you can send it back to us to be remade into something new. That's what real sustainability means to us.",
       "image": "https://i.pinimg.com/564x/26/ee/90/26ee903549b8b69635152f5db58264b2.jpg",
       "amount": "500",
-      "rating": "4.0"
+      "rating": "3.0"
     },
     {
       "id": 11,
@@ -142,7 +146,7 @@
       "description": "What does it feel like to witness climate change playing out in real-time? #notcool. Sound the alarm with our Women's Climate Change T-shirt, printed on organic cotton in our Carbon Neutral factory. Plus, when it's worn out you can send it back to us to be remade into something new. That's what real sustainability means to us.",
       "image": "https://i.pinimg.com/564x/5a/cc/7f/5acc7f5af23bee76168f0f1fd24c75b4.jpg",
       "amount": "700",
-      "rating": "4.0"
+      "rating": "2.0"
     },
     {
       "id": 12,
@@ -150,7 +154,7 @@
       "description": "What does it feel like to witness climate change playing out in real-time? #notcool. Sound the alarm with our Women's Climate Change T-shirt, printed on organic cotton in our Carbon Neutral factory. Plus, when it's worn out you can send it back to us to be remade into something new. That's what real sustainability means to us.",
       "image": "https://i.pinimg.com/564x/7f/c0/84/7fc084dbec9b6c0ce19ab73b25bcba7f.jpg",
       "amount": "100",
-      "rating": "4.0"
+      "rating": "1.0"
     }
   ],
   "orders": [],

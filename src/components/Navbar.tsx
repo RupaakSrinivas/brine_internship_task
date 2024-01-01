@@ -3,11 +3,14 @@ import { useUser } from "../context";
 import { useEffect, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import "../styles/Navbar.css";
+import { FaShoppingCart } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const { user, logout } = useUser();
   const { name, email, profilePic } = user || {};
   const [showProfile, setShowProfile] = useState(false);
+  const Navigate = useNavigate();
 
   const handleShowProfile = () => {
     setShowProfile(!showProfile);
@@ -29,6 +32,7 @@ export default function Navbar() {
     logout();
     console.log(user);
     localStorage.removeItem("user");
+    localStorage.clear();
     // handleShowProfile();
     // window.location.reload();
   };
@@ -39,22 +43,35 @@ export default function Navbar() {
         <div className="ml-4 py-3 text-2xl font-bold">ShopKart</div>
         <div className="flex flex-row justify-around items-center">
           <p
-            className={`mr-4 hover:cursor-pointer text-white ${ user ? "block" : "hidden" }`}
+            className={`mr-4 hover:cursor-pointer text-white ${
+              user ? "block" : "hidden"
+            }`}
           >
             Products
           </p>
           <p
-            className={`mr-4 hover:cursor-pointer text-white ${ user ? "block" : "hidden" }`}
+            className={`mr-4 hover:cursor-pointer text-white ${
+              user ? "block" : "hidden"
+            }`}
             onClick={logOut}
           >
             logout
           </p>
-          <a 
-            className={`mr-4 hover:cursor-pointer text-white ${ user ? "hidden" : "block" }`}
+          <a
+            className={`mr-4 hover:cursor-pointer text-white ${
+              user ? "hidden" : "block"
+            }`}
             href="/login"
           >
             Login
           </a>
+            <FaShoppingCart
+              className="h-6 w-auto hover:cursor-pointer text-white"
+              onClick={() => Navigate("/cart")}
+            />
+          {/* <p
+            className={`mr-4 hover:cursor-pointer text-white ${ user ? "block" : "hidden" }`}
+            onClick={handleShowProfile}
           {/* <div
             className={`flex items-center hover:cursor-pointer ${ user ? "block" : "hidden" }`}
             onClick={handleShowProfile}
