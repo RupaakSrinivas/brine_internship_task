@@ -4,10 +4,9 @@ import axios from "axios";
 
 export default function Cart() {
   const { getCart, updateCart, user } = useUser();
-  const cartItems = getCart();
   const [confirm, setConfirm] = useState(false);
   const baseUrl = process.env.REACT_APP_API_BASEURL;
-
+  const cartItems = getCart();
   const handleOrderPlaced = () => {
     updateCart({ items: [], price: 0 });
     const orderdata: OrderData = {
@@ -34,7 +33,19 @@ export default function Cart() {
     // }
   };
 
-  cartItems.items.map((item) => console.log(item));
+const handleQuantityChange = (itemId: string, newQuantity: number) => {
+    const updatedItems = cartItems.items.map((item) => {
+        if (item.id === parseInt(itemId)) {
+            return { ...item, quantity: newQuantity };
+        }
+        return item;
+    });
+    const updatedPrice = updatedItems.reduce(
+        (total, item) => total + parseInt(item.amount) * newQuantity, 0
+    );
+
+    updateCart({ items: updatedItems, price: updatedPrice });
+};
 
   return (
     <>
@@ -62,7 +73,25 @@ export default function Cart() {
                       {item.title}
                     </p>
                     <p className="text-gray-500">&#8377; {item.amount}</p>
-                    <p className="text-gray-500">Quantity: {item.quantity}</p>
+                    <div className="flex items-center">
+                      <button
+                        className="text-gray-500 px-2 py-1 border border-gray-300 rounded-md"
+                        onClick={() =>
+                          handleQuantityChange(`${item.id}`, item.quantity - 1)
+                        }
+                      >
+                        -
+                      </button>
+                      <p className="text-gray-500 mx-2">{item.quantity}</p>
+                      <button
+                        className="text-gray-500 px-2 py-1 border border-gray-300 rounded-md"
+                        onClick={() =>
+                          handleQuantityChange(`${item.id}`, item.quantity + 1)
+                        }
+                      >
+                        +
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))
@@ -103,24 +132,24 @@ export default function Cart() {
           Place Order
         </button>
       </div>
-        <div
-          className={`fixed  justify-center items-center h-screen w-screen bg-black bg-opacity-50 ${
-            confirm ? "flex" : "hidden"
-          }`}
-        >
-          <div className="bg-white rounded p-4">
-            <p className="text-2xl font-bold">Order Placed</p>
-            <p className="text-gray-500">
-              Your order has been placed successfully.
-            </p>
-            <button
-              className="bg-[#0478ee] w-fit text-white px-4 py-2 rounded-lg hover:cursor-pointer mt-4"
-              onClick={() => setConfirm(false)}
-            >
-              OK
-            </button>
-          </div>
+      <div
+        className={`fixed  justify-center items-center h-screen w-screen bg-black bg-opacity-50 ${
+          confirm ? "flex" : "hidden"
+        }`}
+      >
+        <div className="bg-white rounded p-4">
+          <p className="text-2xl font-bold">Order Placed</p>
+          <p className="text-gray-500">
+            Your order has been placed successfully.
+          </p>
+          <button
+            className="bg-[#0478ee] w-fit text-white px-4 py-2 rounded-lg hover:cursor-pointer mt-4"
+            onClick={() => setConfirm(false)}
+          >
+            OK
+          </button>
         </div>
+      </div>
     </>
   );
 }

@@ -49,6 +49,11 @@ export interface ProductData {
   rating: string;
 }
 
+export interface FavoritesData {
+  email: string;
+  favorites: cartItems;
+}
+
 interface UserContextType {
   user: UserData | null;
   setUser: Dispatch<SetStateAction<UserData | null>>;
