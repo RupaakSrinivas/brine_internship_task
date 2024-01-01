@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useUser, UserData, cartItem } from "../context";
+import { useUser, UserData } from "../context";
+import handleUserLogin from "../utils/ApiCallsAuth";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const Navigate = useNavigate();
-  const { login } = useUser();
+  const { login, user } = useUser();
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -19,18 +20,33 @@ export default function LoginPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const cartitem: cartItem[] = [];
+    try {
+      handleUserLogin(email, password).then((response) => {
+        if (typeof response !== "string") {
+          const cartitem = response.cart;
 
-    const userdata: UserData = {
-      name: email,
-      profilePic: "",
-      username: email,
-      email: email,
-      cart: cartitem,
-    };
-    login(userdata);
-    console.log(userdata);
-    Navigate("/home");
+          const userdata: UserData = {
+            name: response.name,
+            profilePic: response.profilePic,
+            username: response.username,
+            password: response.password,
+            email: response.email,
+            cart: cartitem,
+          };
+          console.log(response, "response");
+          console.log(userdata, "userdata");
+          login(userdata);
+          Navigate("/home");
+          console.log(user, "user");
+        } else {
+          window.alert("Authorization Failed");
+          console.log(response, "response from loginPage")
+        }
+      });
+    } catch (e: any) {
+      window.alert(e);
+      console.log(e);
+    }
   };
 
   return (

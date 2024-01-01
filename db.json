@@ -1,13 +1,37 @@
 {
   "users": [
-      {
-        "profilePic": "https://i.pinimg.com/736x/e5/9e/51/e59e51dcbba47985a013544769015f25.jpg",
-        "id": 1,
-        "name": "John Doe",
-        "email": "johndoe@gmail.com",
-        "password": "123456",
-        "username": "johndoe"
+    {
+      "profilePic": "https://i.pinimg.com/736x/e5/9e/51/e59e51dcbba47985a013544769015f25.jpg",
+      "id": 1,
+      "name": "John Doe",
+      "email": "johndoe@gmail.com",
+      "password": "123456",
+      "username": "johndoe",
+      "cart": {
+        "items": [
+          {
+            "itemId": "1",
+            "quantity": 1
+          }
+        ]
       }
+    },
+    {
+      "profilePic": "https://i.pinimg.com/736x/e5/9e/51/e59e51dcbba47985a013544769015f25.jpg",
+      "id": 2,
+      "name": "Rupaak Srinivas",
+      "email": "rupaaksrinivas8@gmail.com",
+      "password": "123456",
+      "username": "rupaaksrinivas",
+      "cart": {
+        "items": [
+          {
+            "itemId": "1",
+            "quantity": 1
+          }
+        ]
+      }
+    }
   ],
   "products": [
     {

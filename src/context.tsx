@@ -16,6 +16,7 @@ export interface UserData {
   name: string;
   profilePic: string;
   username: string;
+  password: string;
   email: string;
   cart: cartItem[];
 }
