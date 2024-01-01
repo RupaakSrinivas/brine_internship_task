@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser, UserData } from "../context";
-import handleUserLogin from "../utils/ApiCallsAuth";
+import { handleUserLogin } from "../utils/ApiCallsAuth";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");

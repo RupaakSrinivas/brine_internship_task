@@ -31,6 +31,17 @@
           }
         ]
       }
+    },
+    {
+      "name": "Test",
+      "profilePic": "https://i.pinimg.com/736x/e5/9e/51/e59e51dcbba47985a013544769015f25.jpg",
+      "username": "testregister",
+      "password": "123456",
+      "email": "testregister@gmail.com",
+      "cart": {
+        "items": []
+      },
+      "id": 3
     }
   ],
   "products": [
