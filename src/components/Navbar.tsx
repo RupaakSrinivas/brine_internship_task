@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useUser } from "../context";
 import { useEffect, useState } from "react";
 import { FaTimes } from "react-icons/fa";
@@ -28,20 +29,45 @@ export default function Navbar() {
     logout();
     console.log(user);
     localStorage.removeItem("user");
-    handleShowProfile();
+    // handleShowProfile();
     // window.location.reload();
   };
 
   return (
     <>
-      <div className="fixed flex justify-between w-full h-auto px-4 border-b border-[#a9792b] items-center">
-        <div className="ml-4 py-4 text-2xl font-bold">E-Commerce Website</div>
-        <div className={`flex items-center hover:cursor-pointer ${user? "block" : "hidden"}`} onClick={handleShowProfile}>
-          <img
-            className="h-10 w-10 rounded-full"
-            src={profilePic || "https://i.pinimg.com/736x/e5/9e/51/e59e51dcbba47985a013544769015f25.jpg"}
-            alt="Profile Pic"
-          />
+      <div className="fixed flex bg-[#0478ee] text-white justify-around w-full h-auto items-center">
+        <div className="ml-4 py-3 text-2xl font-bold">ShopKart</div>
+        <div className="flex flex-row justify-around items-center">
+          <p
+            className={`mr-4 hover:cursor-pointer text-white ${ user ? "block" : "hidden" }`}
+          >
+            Products
+          </p>
+          <p
+            className={`mr-4 hover:cursor-pointer text-white ${ user ? "block" : "hidden" }`}
+            onClick={logOut}
+          >
+            logout
+          </p>
+          <a 
+            className={`mr-4 hover:cursor-pointer text-white ${ user ? "hidden" : "block" }`}
+            href="/login"
+          >
+            Login
+          </a>
+          {/* <div
+            className={`flex items-center hover:cursor-pointer ${ user ? "block" : "hidden" }`}
+            onClick={handleShowProfile}
+          >
+            <img
+              className="h-10 w-10 rounded-full"
+              src={
+                profilePic ||
+                "https://i.pinimg.com/736x/e5/9e/51/e59e51dcbba47985a013544769015f25.jpg"
+              }
+              alt="Profile Pic"
+            />
+          </div> */}
         </div>
       </div>
       <span className={`${showProfile ? "block" : "hidden"}`}>

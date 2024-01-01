@@ -46,8 +46,7 @@ export async function handleUserRegistration(
 
             const data = {
                 name: name,
-                profilePic:
-                    "https://i.pinimg.com/736x/e5/9e/51/e59e51dcbba47985a013544769015f25.jpg",
+                profilePic:"https://i.pinimg.com/736x/e5/9e/51/e59e51dcbba47985a013544769015f25.jpg",
                 username: username,
                 password: password,
                 email: email,

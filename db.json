@@ -42,6 +42,17 @@
         "items": []
       },
       "id": 3
+    },
+    {
+      "name": "",
+      "profilePic": "https://i.pinimg.com/736x/e5/9e/51/e59e51dcbba47985a013544769015f25.jpg",
+      "username": "",
+      "password": "",
+      "email": "",
+      "cart": {
+        "items": []
+      },
+      "id": 4
     }
   ],
   "products": [
