@@ -39,6 +39,16 @@ export interface Order {
   orderdata: OrderData;
 };
 
+
+export interface ProductData {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  amount: string;
+  rating: string;
+}
+
 interface UserContextType {
   user: UserData | null;
   setUser: Dispatch<SetStateAction<UserData | null>>;

@@ -46,6 +46,7 @@ export default function Navbar() {
             className={`mr-4 hover:cursor-pointer text-white ${
               user ? "block" : "hidden"
             }`}
+            onClick={() => Navigate("/home")}
           >
             Products
           </p>
@@ -65,15 +66,17 @@ export default function Navbar() {
           >
             Login
           </a>
+          <div className="w-fit flex gap-1">
             <FaShoppingCart
               className="h-6 w-auto hover:cursor-pointer text-white"
               onClick={() => Navigate("/cart")}
             />
-          {/* <p
-            className={`mr-4 hover:cursor-pointer text-white ${ user ? "block" : "hidden" }`}
-            onClick={handleShowProfile}
+            <p className="text-sm text-white bg-red-600 rounded-full p-0 ">{user?.cart?.items.length}</p>
+          </div>
           {/* <div
-            className={`flex items-center hover:cursor-pointer ${ user ? "block" : "hidden" }`}
+            className={`flex items-center hover:cursor-pointer ${
+              user ? "block" : "hidden"
+            }`}
             onClick={handleShowProfile}
           >
             <img
