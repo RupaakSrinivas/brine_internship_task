@@ -4,6 +4,7 @@ import Template from './pages/Template';
 import GuardedRoute from './components/GaurdedRoute';
 import LoginPage from './pages/LoginPage';
 import Home from './pages/Home';
+import Register from './pages/RegisterPage';
 
 const App: React.FC = () => {
 
@@ -16,6 +17,7 @@ const App: React.FC = () => {
             <Route path="/home" element={<Home />}></Route>
           </Route>
           <Route path="/login" element={<LoginPage />}></Route>
+          <Route path="/register" element={<Register />}></Route>
         </Routes>
       </Template>
     </Router>

@@ -21,32 +21,32 @@ export default function LoginPage() {
 
     const cartitem: cartItem[] = [];
 
-    const userdata: UserData={
-        name: email,
-        profilePic: "",
-        username: email,
-        email: email,
-        cart: cartitem,
-    }
+    const userdata: UserData = {
+      name: email,
+      profilePic: "",
+      username: email,
+      email: email,
+      cart: cartitem,
+    };
     login(userdata);
     console.log(userdata);
     Navigate("/home");
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-        <h2 className="text-2xl font-bold mb-4">Login</h2>
+    <div className="flex justify-center items-center h-auto">
+      <div className="bg-[#1f2937] border-2 border-[#363f4b] shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <h2 className="text-2xl font-bold mb-4 text-white">Login</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className="block text-white text-sm font-bold mb-2"
               htmlFor="email"
             >
               Email:
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none bg-[#1f2937] border border-slate-400 rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:border-[#a9792b]"
               id="email"
               type="email"
               value={email}
@@ -55,25 +55,33 @@ export default function LoginPage() {
           </div>
           <div className="mb-6">
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className="block text-slate-200 text-sm font-bold mb-2"
               htmlFor="password"
             >
               Password:
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none bg-[#1f2937] border border-slate-400 rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:border-[#a9792b]"
               id="password"
               type="password"
               value={password}
               onChange={handlePasswordChange}
             />
           </div>
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="submit"
-          >
-            Login
-          </button>
+          <div className="flex flex-row justify-between items-center">
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="submit"
+            >
+              Login
+            </button>
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline "
+              onClick={() => Navigate("/register")}
+            >
+              Register
+            </button>
+          </div>
         </form>
       </div>
     </div>
