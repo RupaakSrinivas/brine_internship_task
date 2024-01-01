@@ -8,12 +8,16 @@ import React, {
 } from "react";
 
 export type cartItem = {
-  id: string;
+  id: number;
   quantity: number;
+  title: string;
+  image: string;
+  amount: string;
 };
 
 export type cartItems = {
   items: cartItem[];
+  price: number;
 };
 
 export interface UserData {
@@ -23,16 +27,26 @@ export interface UserData {
   password: string;
   email: string;
   cart: cartItems;
-}
+};
+
+export type OrderData = {
+  orderid: number;
+  cart: cartItems;
+};
+
+export interface Order {
+  useremail: string;
+  orderdata: OrderData;
+};
 
 interface UserContextType {
   user: UserData | null;
   setUser: Dispatch<SetStateAction<UserData | null>>;
   login: (userData: UserData) => void;
   logout: () => void;
-  updateCart: (cart: cartItem[]) => void;
-  getCart: () => cartItems["items"];
-}
+  updateCart: (cart: cartItems) => void;
+  getCart: () => cartItems;
+};
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
@@ -49,14 +63,14 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({
     setUser(null);
   };
 
-  const updateCart = (cart: cartItem[]) => {
+  const updateCart = (cart: cartItems) => {
     if (user) {
-      setUser({ ...user, cart: { items: cart } });
+      setUser({ ...user, cart: cart });
     }
   };
 
   const getCart = () => {
-    return user?.cart.items || [];
+    return user?.cart || { items: [], price: 0 };
   };
 
   const contextValue: UserContextType = {
@@ -69,7 +83,9 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({
   };
 
   return (
-    <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>
+    <UserContext.Provider value={contextValue}>
+      {children}
+    </UserContext.Provider>
   );
 };
 
