@@ -30,6 +30,10 @@ export default function Register() {
           password: response.password,
           email: response.email,
           cart: cartitem,
+            favorites: {
+                email: response.email,
+                favoriteitems: [],
+            }
         };
         console.log(response, "response");
         console.log(userdata, "userdata");

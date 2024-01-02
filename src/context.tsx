@@ -27,6 +27,7 @@ export interface UserData {
   password: string;
   email: string;
   cart: cartItems;
+  favorites: FavoritesData;
 };
 
 export type OrderData = {
@@ -51,7 +52,7 @@ export interface ProductData {
 
 export interface FavoritesData {
   email: string;
-  favorites: cartItems;
+  favoriteitems: cartItem[];
 }
 
 interface UserContextType {
@@ -61,6 +62,7 @@ interface UserContextType {
   logout: () => void;
   updateCart: (cart: cartItems) => void;
   getCart: () => cartItems;
+  updateFavorites: (favorites: FavoritesData) => void;
 };
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -84,6 +86,12 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({
     }
   };
 
+  const updateFavorites = (favorites: FavoritesData) => {
+    if (user) {
+      setUser({ ...user, favorites: favorites });
+    }
+  };
+
   const getCart = () => {
     return user?.cart || { items: [], price: 0 };
   };
@@ -95,6 +103,7 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({
     logout,
     updateCart,
     getCart,
+    updateFavorites,
   };
 
   return (

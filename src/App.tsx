@@ -9,6 +9,7 @@ import Register from "./pages/RegisterPage";
 import ProductPage from "./pages/ProductPage";
 import { useUser, UserData } from "./context";
 import Cart from "./pages/Cart";
+import FavoritesPage from "./pages/FavoritesPage";
 
 const App: React.FC = () => {
   const { login } = useUser();
@@ -24,13 +25,14 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <Router>
+    <Router >
       <Template>
         <Routes>
           <Route path="/" element={<GuardedRoute />}>
             <Route path="/" element={<Home />}></Route>
             <Route path="/home" element={<Home />}></Route>
             <Route path="/product/:id" element={<ProductPage />}></Route>
+            <Route path="/yourfavorites" element={<FavoritesPage />}></Route>
             <Route path="/cart" element={<Cart />}></Route>
           </Route>
           <Route path="/login" element={<LoginPage />}></Route>

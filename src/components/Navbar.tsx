@@ -54,6 +54,14 @@ export default function Navbar() {
             className={`mr-4 hover:cursor-pointer text-white ${
               user ? "block" : "hidden"
             }`}
+            onClick={() => Navigate("/yourfavorites")}
+          >
+            Favorites
+          </p>
+          <p
+            className={`mr-4 hover:cursor-pointer text-white ${
+              user ? "block" : "hidden"
+            }`}
             onClick={logOut}
           >
             logout

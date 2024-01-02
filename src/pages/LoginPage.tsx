@@ -31,6 +31,10 @@ export default function LoginPage() {
             password: response.password,
             email: response.email,
             cart: cartitem,
+            favorites: {
+              email: response.email,
+              favoriteitems: [],
+            },
           };
           // localStorage.setItem("name", response.name);
           // localStorage.setItem("email", response.email);
