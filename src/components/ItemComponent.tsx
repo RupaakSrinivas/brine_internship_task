@@ -3,21 +3,17 @@ import { FaHeart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useUser, ProductData, FavoritesData } from "../context";
 import { useEffect, useState } from "react";
-import axios from "axios";
 
 export default function ItemComponent(data: ProductData) {
   const { user, getCart, updateCart, updateFavorites } = useUser();
   const rating = parseInt(data.rating);
   const Navigate = useNavigate();
   const [cartStatus, setCartStatus] = useState(false);
-  //   const [favorites, setFavorites] = useState<FavoritesData[]>([]);
   const [isFavorite, setIsFavorite] = useState(false);
 
   const handleProductPage = () => {
     Navigate(`/product/${data.id}`);
   };
-
-  const baseUrl = process.env.REACT_APP_API_BASEURL;
 
   useEffect(() => {
     const cart = getCart();
@@ -77,20 +73,11 @@ export default function ItemComponent(data: ProductData) {
         quantity: 1,
       });
     }
-    // favorites.items = items;
     const Data: FavoritesData = {
       email: user?.email || "",
       favoriteitems: items,
     };
-
-    try{
-        axios.post(baseUrl + `favorites`, Data);
-        updateFavorites(Data);
-        setIsFavorite(!isFavorite);
-    } catch (e: any) {
-        window.alert(e);
-        console.log(e);
-    }
+    updateFavorites(Data);
   };
 
   return (

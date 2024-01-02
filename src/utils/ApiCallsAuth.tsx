@@ -9,11 +9,12 @@ export async function handleUserLogin(
 
     return new Promise<UserData | string>(async (resolve, reject) => {
         try {
-            const response = await axios.get(baseUrl + "users");
-            const userData = response.data.find(
-                (user: UserData) =>
-                    user.email.toLowerCase() === email.toLowerCase() && user.password === password
-            );
+            const response = await axios.get(baseUrl + `users/?email=${email}`);
+            const favouriteResponse = await axios.get(baseUrl + `favourites/?email=${email}`);
+            const userData = response.data[0];
+            const favouriteData = favouriteResponse.data[0];
+            userData.favorites = favouriteData;
+            console.log(userData, "userData");
             if (userData) {
                 resolve(userData);
                 console.log(response, "response");

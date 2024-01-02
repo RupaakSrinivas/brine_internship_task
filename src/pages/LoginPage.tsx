@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser, UserData } from "../context";
-import { handleUserLogin } from "../utils/ApiCallsAuth";
+import { handleUserLogin } from "../utils/ApiCallsAuth"
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -23,7 +23,6 @@ export default function LoginPage() {
       handleUserLogin(email, password).then((response) => {
         if (typeof response !== "string") {
           const cartitem = response.cart;
-          
           const userdata: UserData = {
             name: response.name,
             profilePic: response.profilePic,
