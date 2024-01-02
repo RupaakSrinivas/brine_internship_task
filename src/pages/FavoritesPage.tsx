@@ -13,7 +13,7 @@ export default function FavoritesPage() {
     if (user === null) return;
     const favorites = user.favorites.favoriteitems || [];
     axios.get(baseUrl + "products").then((response) => {
-      if (response.data) {
+      if (response.data ) {
         const data = response.data;
         const favproducts = data.filter((product: ProductData) => {
           const item = favorites.find((item: cartItem) => item.id === product.id);
@@ -30,17 +30,21 @@ export default function FavoritesPage() {
 
   return (
     <div className="flex flex-wrap justify-center items-align w-full h-auto">
-      {products.map((product: ProductData) => (
-        <ItemComponent
-          key={product.id}
-          id={product.id}
-          title={product.title}
-          description={product.description}
-          image={product.image}
-          amount={product.amount}
-          rating={product.rating}
-        />
-      ))}
+        {products.length === 0 ? (
+            <p className="text-xl">You have no Favorite products</p>
+        ) : (
+            products.map((product: ProductData) => (
+                <ItemComponent
+                    key={product.id}
+                    id={product.id}
+                    title={product.title}
+                    description={product.description}
+                    image={product.image}
+                    amount={product.amount}
+                    rating={product.rating}
+                />
+            ))
+        )}
     </div>
   );
 }

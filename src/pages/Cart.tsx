@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useUser, Order, OrderData } from "../context";
 import axios from "axios";
+import { IoMdCloseCircleOutline } from "react-icons/io";
 
 export default function Cart() {
   const { getCart, updateCart, user } = useUser();
@@ -20,15 +21,14 @@ export default function Cart() {
     );
     setQuantity(totalQuantity);
     setDeliveryCharges(totalQuantity * 50);
-    if(totalQuantity === 0) {
+    if (totalQuantity === 0) {
       setDiscount(0);
-    } else if(totalQuantity < 10) {
+    } else if (totalQuantity < 10) {
       setDiscount(50);
-    } else if(totalQuantity < 20) {
+    } else if (totalQuantity < 20) {
       setDiscount(100);
     }
   }, [getCart]);
-
 
   const handleOrderPlaced = () => {
     updateCart({ items: [], price: 0 });
@@ -42,6 +42,8 @@ export default function Cart() {
     };
     try {
       axios.post(baseUrl + "orders", order);
+      axios.put(baseUrl + "users/?email=" + user?.email, user?.cart);
+      console.log(user?.cart);
     } catch (e: any) {
       window.alert(e);
       console.log(e);
@@ -78,7 +80,7 @@ export default function Cart() {
               cartItems.items.map((item) => (
                 <div
                   key={item.id}
-                  className="w-full md:w-[600px] h-[10rem] flex flex-row justify-start items-center border rounded-md shadow-md overflow-hidden mt-4"
+                  className="w-full md:w-[600px] h-[10rem] flex flex-row justify-start items-center border rounded-md shadow-md overflow-hidden mt-4 pr-2"
                 >
                   <img
                     src={item.image}
@@ -90,25 +92,36 @@ export default function Cart() {
                       {item.title}
                     </p>
                     <p className="text-gray-500">&#8377; {item.amount}</p>
-                    <div className="flex items-center">
-                      <button
-                        className="text-gray-500 px-2 py-1 border border-gray-300 rounded-md"
-                        onClick={() =>
-                          handleQuantityChange(`${item.id}`, item.quantity - 1)
-                        }
-                        disabled={item.quantity === 0}
-                      >
-                        -
-                      </button>
-                      <p className="text-gray-500 mx-2">{item.quantity}</p>
-                      <button
-                        className="text-gray-500 px-2 py-1 border border-gray-300 rounded-md"
-                        onClick={() =>
-                          handleQuantityChange(`${item.id}`, item.quantity + 1)
-                        }
-                      >
-                        +
-                      </button>
+                    <div className="w-full flex flex-row justify-between items-center">
+                      <div className="flex items-center">
+                        <button
+                          className="text-gray-500 px-2 py-1 border border-gray-300 rounded-md"
+                          onClick={() =>
+                            handleQuantityChange(
+                              `${item.id}`,
+                              item.quantity - 1
+                            )
+                          }
+                          disabled={item.quantity === 0}
+                        >
+                          -
+                        </button>
+                        <p className="text-gray-500 mx-2">{item.quantity}</p>
+                        <button
+                          className="text-gray-500 px-2 py-1 border border-gray-300 rounded-md"
+                          onClick={() =>
+                            handleQuantityChange(
+                              `${item.id}`,
+                              item.quantity + 1
+                            )
+                          }
+                        >
+                          +
+                        </button>
+                      </div>
+                      <IoMdCloseCircleOutline className="h-full text-2xl text-red-600 w-auto hover:scale-110 hover:cursor-pointer"
+                        onClick={() => handleQuantityChange(`${item.id}`, 0)}
+                      />
                     </div>
                   </div>
                 </div>
@@ -123,10 +136,7 @@ export default function Cart() {
             </div>
             <div className="flex flex-row w-full justify-between items-center">
               <p className="text-gray-500">Discount Price</p>
-              <p className="text-gray-500">
-                &#8377;{" "}
-                {discount}
-              </p>
+              <p className="text-gray-500">&#8377; {discount}</p>
             </div>
             <div className="flex flex-row w-full justify-between items-center">
               <p className="text-gray-500">Delivery Charges</p>
@@ -137,7 +147,9 @@ export default function Cart() {
               <p className="text-gray-500">Total Amount</p>
               <p className="text-gray-500">
                 &#8377;{" "}
-                {cartItems.items.length === 0 ? 0 : cartItems.price + deliveryCharges - discount}
+                {cartItems.items.length === 0
+                  ? 0
+                  : cartItems.price + deliveryCharges - discount}
               </p>
             </div>
           </div>

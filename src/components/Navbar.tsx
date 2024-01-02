@@ -79,7 +79,7 @@ export default function Navbar() {
               className="h-6 w-auto hover:cursor-pointer text-white"
               onClick={() => Navigate("/cart")}
             />
-            <p className="text-sm text-white bg-red-600 rounded-full p-0 ">{user?.cart?.items.length}</p>
+            <p className="text-sm text-white bg-red-600 rounded-full  px-2 leading-[160%]"> {user?.cart?.items.length}</p>
           </div>
           {/* <div
             className={`flex items-center hover:cursor-pointer ${
