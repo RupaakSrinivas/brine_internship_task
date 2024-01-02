@@ -8,8 +8,8 @@ import { useUser, ProductData, FavoritesData } from "../context";
 export default function ProductPage() {
   const { id } = useParams<{ id: string }>();
   const { user, updateCart, updateFavorites } = useUser();
-  const [ isFavorite, setIsFavorite ] = useState(false);
-  const [ cartStatus, setCartStatus ] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [cartStatus, setCartStatus] = useState(false);
 
   const baseUrl = process.env.REACT_APP_API_BASEURL;
   const [product, setProduct] = useState<ProductData>({
@@ -22,32 +22,34 @@ export default function ProductPage() {
   });
 
   useEffect(() => {
+    const favorites = user?.favorites.favoriteitems || [];
+    const favitem = favorites.find((item) => item.id === product.id);
+    if (favitem) {
+      setIsFavorite(true);
+    } else {
+      setIsFavorite(false);
+    }
+    const cart = user?.cart || { items: [], price: 0 };
+    const items = cart.items;
+    const item = items.find((item) => item.id === product.id);
+    if (item) {
+      setCartStatus(true);
+    } else {
+      setCartStatus(false);
+    }
+  }, [product.id, user]);
+
+  useEffect(() => {
     try {
       axios.get(baseUrl + "products/" + id).then((response) => {
         if (response.data) {
           setProduct(response.data);
         }
       });
-      const favorites = user?.favorites.favoriteitems || [];
-      const favitem = favorites.find((item) => item.id === product.id);
-      if (favitem) {
-        setIsFavorite(true);
-      } else {
-        setIsFavorite(false);
-      }
-      const cart = user?.cart || { items: [], price: 0 };
-      const items = cart.items;
-      const item = items.find((item) => item.id === product.id);
-      if (item) {
-        setCartStatus(true);
-      } else {
-        setCartStatus(false);
-      }
     } catch (error) {
       window.alert(error);
     }
-    
-  }, [id, user ]);
+  }, [id, user]);
 
   const handleAddItemCart = () => {
     const cart = user?.cart || { items: [], price: 0 };
@@ -70,11 +72,11 @@ export default function ProductPage() {
     cart.items = items;
     updateCart(cart);
     const Data = {
-      "cart":{
+      cart: {
         items: items,
         price: cart.price,
       },
-      }
+    };
     axios.patch(process.env.REACT_APP_API_BASEURL + `users/${user?.id}`, Data);
   };
 
@@ -100,7 +102,10 @@ export default function ProductPage() {
       favoriteitems: favorites,
     };
     updateFavorites(Data);
-    axios.patch(process.env.REACT_APP_API_BASEURL + `favourites/${user?.id}`, Data);
+    axios.patch(
+      process.env.REACT_APP_API_BASEURL + `favourites/${user?.id}`,
+      Data
+    );
   };
 
   return (
@@ -119,7 +124,9 @@ export default function ProductPage() {
           </h1>
           <FaHeart
             id="favorite"
-            className={`h-6 w-auto hover:cursor-pointer ${isFavorite ? "text-red-600" : "text-gray-500"}`}
+            className={`h-6 w-auto hover:cursor-pointer ${
+              isFavorite ? "text-red-600" : "text-gray-500"
+            }`}
             onClick={handleFavoriteToggle}
           />
         </div>
