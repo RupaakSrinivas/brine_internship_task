@@ -60,7 +60,7 @@ export default function ItemComponent(data: ProductData) {
       },
       }
     updateCart(cart);
-    axios.put(process.env.REACT_APP_API_BASEURL + `users/${user?.id}`, Data);
+    axios.patch(process.env.REACT_APP_API_BASEURL + `users/${user?.id}`, Data);
   };
 
   const handleFavoriteToggle = () => {
@@ -86,7 +86,7 @@ export default function ItemComponent(data: ProductData) {
       favoriteitems: items,
     };
     updateFavorites(Data);
-    axios.put(process.env.REACT_APP_API_BASEURL + `favourites/${user?.id}`, Data);
+    axios.patch(process.env.REACT_APP_API_BASEURL + `favourites/${user?.id}`, Data);
   };
 
   return (

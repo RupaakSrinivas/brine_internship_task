@@ -40,7 +40,7 @@ export default function Cart() {
         price: 0,
       },
     };
-    axios.put(process.env.REACT_APP_API_BASEURL + `users/${user?.id}`, Data);
+    axios.patch(process.env.REACT_APP_API_BASEURL + `users/${user?.id}`, Data);
 
     const orderdata: OrderData = {
       orderid: Math.floor(Math.random() * 10000000),
@@ -52,7 +52,7 @@ export default function Cart() {
     };
     try {
       axios.post(baseUrl + "orders", order);
-      axios.put(baseUrl + "users/?email=" + user?.email, user?.cart);
+      axios.patch(baseUrl + "users/" + user?.id, user?.cart);
       console.log(user?.cart);
     } catch (e: any) {
       window.alert(e);
@@ -82,12 +82,12 @@ export default function Cart() {
         price: newPrice,
       },
     };
-    axios.put(process.env.REACT_APP_API_BASEURL + `users/${user?.id}`, Data);
+    axios.patch(process.env.REACT_APP_API_BASEURL + `users/${user?.id}`, Data);
   };
 
   return (
     <>
-      <div className="w-full flex flex-col justify-center self-start  lg:ml-[10vw]">
+      <div className="w-full flex flex-col justify-center self-start md:ml-[5vw] lg:ml-[10vw]">
         <div className="flex flex-col lg:flex-row gap-4">
           <div className="bg-white w-fit mx-auto md:mx-0 p-4">
             <p className="text-2xl font-bold">My Cart</p>
@@ -174,7 +174,7 @@ export default function Cart() {
           </div>
         </div>
         <button
-          className="bg-[#0478ee] w-fit text-white px-4 py-2 rounded-lg hover:cursor-pointer mt-4 disabled:opacity-50 focus:scale-95"
+          className="bg-[#0478ee] w-fit self-center md:self-start text-white px-4 py-2 rounded-lg hover:cursor-pointer mt-4 disabled:opacity-50 focus:scale-95"
           onClick={handleOrderPlaced}
           disabled={quantity === 0}
         >

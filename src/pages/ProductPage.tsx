@@ -75,7 +75,7 @@ export default function ProductPage() {
         price: cart.price,
       },
       }
-    axios.put(process.env.REACT_APP_API_BASEURL + `users/${user?.id}`, Data);
+    axios.patch(process.env.REACT_APP_API_BASEURL + `users/${user?.id}`, Data);
   };
 
   const handleFavoriteToggle = () => {
@@ -100,7 +100,7 @@ export default function ProductPage() {
       favoriteitems: favorites,
     };
     updateFavorites(Data);
-    axios.put(process.env.REACT_APP_API_BASEURL + `favourites/${user?.id}`, Data);
+    axios.patch(process.env.REACT_APP_API_BASEURL + `favourites/${user?.id}`, Data);
   };
 
   return (
