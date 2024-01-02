@@ -28,7 +28,14 @@ export default function ItemComponent(data: ProductData) {
     } else {
       setCartStatus(false);
     }
-  }, [data.id, getCart]);
+    const favorites = user?.favorites.favoriteitems || [];
+    const favitem = favorites.find((item) => item.id === data.id);
+    if (favitem) {
+      setIsFavorite(true);
+    } else {
+      setIsFavorite(false);
+    }
+  }, [data.id, getCart, user]);
 
   const handleAddItemCart = () => {
     const cart = user?.cart || { items: [], price: 0 };

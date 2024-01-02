@@ -1,47 +1,27 @@
-import { useUser, ProductData } from "../context";
+import { useUser, cartItem } from "../context";
 import ItemComponent from "../components/ItemComponent";
-import axios from "axios";
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState } from "react";
 
 export default function FavoritesPage() {
-    const { user } = useUser();
-    const favorites = useMemo(() => user?.favorites.favoriteitems || [], [user]);
-    const baseUrl = process.env.REACT_APP_API_BASEURL;
-    const [products, setProducts] = useState<ProductData[]>([]);
+  const { user } = useUser();
+  const [products, setProducts] = useState<cartItem[]>([]);
 
-    useEffect(() => {
-        const fetchAllProducts = async () => {
-          try {
-            const response = await axios.get(baseUrl + "products");
-            if (response.data) {
-              setProducts(response.data);
-            }
-          } catch (error) {
-            window.alert(error);
-          }
-        };
-    
-        fetchAllProducts();
-      }, [baseUrl]);
-    
-      const filteredProducts = useMemo(() => {
-        if (!favorites.length || !products.length) return [];
-    
-        // Filter products based on the product IDs in favorites
-        return products.filter((product) => favorites.some((fav) => fav.id === product.id));
-      }, [favorites, products]);
+useEffect(() => {
+    setProducts(user?.favorites.favoriteitems || []);
+}
+, [user]);
 
-    return (
-        <div className="flex flex-wrap justify-center items-align w-full h-auto">
-            {filteredProducts.map((product: ProductData) => (
+  return (
+    <div className="flex flex-wrap justify-center items-align w-full h-auto">
+            {products.map((product: cartItem) => (
                 <ItemComponent
                     key={product.id}
                     id={product.id}
                     title={product.title}
-                    description={product.description}
+                    description=""
                     image={product.image}
                     amount={product.amount}
-                    rating={product.rating}
+                    rating="4"
                 />
             ))}
         </div>

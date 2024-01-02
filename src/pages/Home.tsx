@@ -19,7 +19,6 @@ export default function Home() {
       axios.get(baseUrl + "products").then((response) => {
         if (response.data) {
           setProducts(response.data);
-
         }
       });
     } catch (error) {

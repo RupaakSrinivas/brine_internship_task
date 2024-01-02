@@ -64,33 +64,6 @@
         "items": []
       },
       "id": 3
-    },
-    {
-      "name": "Rupaak Srinivas",
-      "profilePic": "https://i.pinimg.com/736x/e5/9e/51/e59e51dcbba47985a013544769015f25.jpg",
-      "username": "rupaaksrinivas",
-      "password": "123456",
-      "email": "rupaaksrinivas8@gmail.com",
-      "cart": {
-        "items": [
-          {
-            "id": 1,
-            "quantity": 1,
-            "title": "EYEBOGLER Regular Fit Men's Cotton T-Shirt",
-            "image": "https://i.pinimg.com/originals/25/0d/a3/250da32c889b624849bf828ae2ece420.jpg",
-            "amount": "200"
-          },
-          {
-            "id": 2,
-            "quantity": 1,
-            "title": "RodZen - Men's Cotton Half Sleeve Regular Fit Striped T-Shirt",
-            "image": "https://i.pinimg.com/564x/55/82/bc/5582bc23ad7619f10f09d10141e7a6b9.jpg",
-            "amount": "400"
-          }
-        ],
-        "price": 600
-      },
-      "id": 4
     }
   ],
   "products": [
@@ -217,379 +190,45 @@
         }
       },
       "id": 1
-    },
-    {
-      "useremail": "rupaaksrinivas8@gmail.com",
-      "orderdata": {
-        "orderid": 9455604,
-        "cart": {
-          "items": [],
-          "price": 0
-        }
-      },
-      "id": 2
-    },
-    {
-      "useremail": "rupaaksrinivas8@gmail.com",
-      "orderdata": {
-        "orderid": 4573882,
-        "cart": {
-          "items": [],
-          "price": 0
-        }
-      },
-      "id": 3
-    },
-    {
-      "useremail": "rupaaksrinivas8@gmail.com",
-      "orderdata": {
-        "orderid": 4660046,
-        "cart": {
-          "items": [],
-          "price": 0
-        }
-      },
-      "id": 4
-    },
-    {
-      "useremail": "rupaaksrinivas8@gmail.com",
-      "orderdata": {
-        "orderid": 849883,
-        "cart": {
-          "items": [
-            {
-              "id": 1,
-              "quantity": 1,
-              "title": "EYEBOGLER Regular Fit Men's Cotton T-Shirt",
-              "image": "https://i.pinimg.com/originals/25/0d/a3/250da32c889b624849bf828ae2ece420.jpg",
-              "amount": "200"
-            },
-            {
-              "id": 2,
-              "quantity": 1,
-              "title": "RodZen - Men's Cotton Half Sleeve Regular Fit Striped T-Shirt",
-              "image": "https://i.pinimg.com/564x/55/82/bc/5582bc23ad7619f10f09d10141e7a6b9.jpg",
-              "amount": "400"
-            }
-          ],
-          "price": 600
-        }
-      },
-      "id": 5
-    },
-    {
-      "useremail": "rupaaksrinivas8@gmail.com",
-      "orderdata": {
-        "orderid": 6152098,
-        "cart": {
-          "items": [],
-          "price": 0
-        }
-      },
-      "id": 6
-    },
-    {
-      "useremail": "rupaaksrinivas8@gmail.com",
-      "orderdata": {
-        "orderid": 7235982,
-        "cart": {
-          "items": [],
-          "price": 0
-        }
-      },
-      "id": 7
-    },
-    {
-      "useremail": "rupaaksrinivas8@gmail.com",
-      "orderdata": {
-        "orderid": 4553144,
-        "cart": {
-          "items": [
-            {
-              "id": 1,
-              "quantity": 1,
-              "title": "EYEBOGLER Regular Fit Men's Cotton T-Shirt",
-              "image": "https://i.pinimg.com/originals/25/0d/a3/250da32c889b624849bf828ae2ece420.jpg",
-              "amount": "200"
-            },
-            {
-              "id": 2,
-              "quantity": 1,
-              "title": "RodZen - Men's Cotton Half Sleeve Regular Fit Striped T-Shirt",
-              "image": "https://i.pinimg.com/564x/55/82/bc/5582bc23ad7619f10f09d10141e7a6b9.jpg",
-              "amount": "400"
-            }
-          ],
-          "price": 600
-        }
-      },
-      "id": 8
-    },
-    {
-      "useremail": "rupaaksrinivas8@gmail.com",
-      "orderdata": {
-        "orderid": 9464001,
-        "cart": {
-          "items": [
-            {
-              "id": 1,
-              "quantity": 1,
-              "title": "EYEBOGLER Regular Fit Men's Cotton T-Shirt",
-              "image": "https://i.pinimg.com/originals/25/0d/a3/250da32c889b624849bf828ae2ece420.jpg",
-              "amount": "200"
-            },
-            {
-              "id": 2,
-              "quantity": 1,
-              "title": "RodZen - Men's Cotton Half Sleeve Regular Fit Striped T-Shirt",
-              "image": "https://i.pinimg.com/564x/55/82/bc/5582bc23ad7619f10f09d10141e7a6b9.jpg",
-              "amount": "400"
-            }
-          ],
-          "price": 600
-        }
-      },
-      "id": 9
-    },
-    {
-      "useremail": "rupaaksrinivas8@gmail.com",
-      "orderdata": {
-        "orderid": 2171838,
-        "cart": {
-          "items": [],
-          "price": 0
-        }
-      },
-      "id": 10
-    },
-    {
-      "useremail": "rupaaksrinivas8@gmail.com",
-      "orderdata": {
-        "orderid": 4820618,
-        "cart": {
-          "items": [],
-          "price": 0
-        }
-      },
-      "id": 11
-    },
-    {
-      "useremail": "rupaaksrinivas8@gmail.com",
-      "orderdata": {
-        "orderid": 9310173,
-        "cart": {
-          "items": [],
-          "price": 0
-        }
-      },
-      "id": 12
-    },
-    {
-      "useremail": "rupaaksrinivas8@gmail.com",
-      "orderdata": {
-        "orderid": 8336698,
-        "cart": {
-          "items": [],
-          "price": 0
-        }
-      },
-      "id": 13
-    },
-    {
-      "useremail": "rupaaksrinivas8@gmail.com",
-      "orderdata": {
-        "orderid": 8734778,
-        "cart": {
-          "items": [],
-          "price": 0
-        }
-      },
-      "id": 14
-    },
-    {
-      "useremail": "rupaaksrinivas8@gmail.com",
-      "orderdata": {
-        "orderid": 7395907,
-        "cart": {
-          "items": [],
-          "price": 0
-        }
-      },
-      "id": 15
-    },
-    {
-      "useremail": "rupaaksrinivas8@gmail.com",
-      "orderdata": {
-        "orderid": 3269607,
-        "cart": {
-          "items": [],
-          "price": 0
-        }
-      },
-      "id": 16
-    },
-    {
-      "useremail": "rupaaksrinivas8@gmail.com",
-      "orderdata": {
-        "orderid": 7727983,
-        "cart": {
-          "items": [],
-          "price": 0
-        }
-      },
-      "id": 17
-    },
-    {
-      "useremail": "rupaaksrinivas8@gmail.com",
-      "orderdata": {
-        "orderid": 5834708,
-        "cart": {
-          "items": [
-            {
-              "id": 1,
-              "quantity": 1,
-              "title": "EYEBOGLER Regular Fit Men's Cotton T-Shirt",
-              "image": "https://i.pinimg.com/originals/25/0d/a3/250da32c889b624849bf828ae2ece420.jpg",
-              "amount": "200"
-            },
-            {
-              "id": 2,
-              "quantity": 1,
-              "title": "RodZen - Men's Cotton Half Sleeve Regular Fit Striped T-Shirt",
-              "image": "https://i.pinimg.com/564x/55/82/bc/5582bc23ad7619f10f09d10141e7a6b9.jpg",
-              "amount": "400"
-            }
-          ],
-          "price": 600
-        }
-      },
-      "id": 18
-    },
-    {
-      "useremail": "rupaaksrinivas8@gmail.com",
-      "orderdata": {
-        "orderid": 6675945,
-        "cart": {
-          "items": [],
-          "price": 0
-        }
-      },
-      "id": 19
-    },
-    {
-      "useremail": "rupaaksrinivas8@gmail.com",
-      "orderdata": {
-        "orderid": 3960490,
-        "cart": {
-          "items": [],
-          "price": 0
-        }
-      },
-      "id": 20
-    },
-    {
-      "useremail": "rupaaksrinivas8@gmail.com",
-      "orderdata": {
-        "orderid": 214751,
-        "cart": {
-          "items": [],
-          "price": 0
-        }
-      },
-      "id": 21
-    },
-    {
-      "useremail": "rupaaksrinivas8@gmail.com",
-      "orderdata": {
-        "orderid": 8234684,
-        "cart": {
-          "items": [
-            {
-              "id": 1,
-              "quantity": 1,
-              "title": "EYEBOGLER Regular Fit Men's Cotton T-Shirt",
-              "image": "https://i.pinimg.com/originals/25/0d/a3/250da32c889b624849bf828ae2ece420.jpg",
-              "amount": "200"
-            },
-            {
-              "id": 2,
-              "quantity": 1,
-              "title": "RodZen - Men's Cotton Half Sleeve Regular Fit Striped T-Shirt",
-              "image": "https://i.pinimg.com/564x/55/82/bc/5582bc23ad7619f10f09d10141e7a6b9.jpg",
-              "amount": "400"
-            }
-          ],
-          "price": 600
-        }
-      },
-      "id": 22
-    },
-    {
-      "useremail": "rupaaksrinivas8@gmail.com",
-      "orderdata": {
-        "orderid": 5082215,
-        "cart": {
-          "items": [
-            {
-              "id": 1,
-              "quantity": 1,
-              "title": "EYEBOGLER Regular Fit Men's Cotton T-Shirt",
-              "image": "https://i.pinimg.com/originals/25/0d/a3/250da32c889b624849bf828ae2ece420.jpg",
-              "amount": "200"
-            },
-            {
-              "id": 5,
-              "quantity": 1,
-              "title": "Max Men's Slim Polo",
-              "image": "https://i.pinimg.com/564x/5a/cc/7f/5acc7f5af23bee76168f0f1fd24c75b4.jpg",
-              "amount": "400"
-            },
-            {
-              "id": 4,
-              "quantity": 1,
-              "title": "Jockey - Men's Regular Fit Round Neck Half Sleeved T-Shirt",
-              "image": "https://i.pinimg.com/564x/26/ee/90/26ee903549b8b69635152f5db58264b2.jpg",
-              "amount": "350"
-            }
-          ],
-          "price": 600
-        }
-      },
-      "id": 23
-    },
-    {
-      "useremail": "rupaaksrinivas8@gmail.com",
-      "orderdata": {
-        "orderid": 8548850,
-        "cart": {
-          "items": [
-            {
-              "id": 1,
-              "quantity": 1,
-              "title": "EYEBOGLER Regular Fit Men's Cotton T-Shirt",
-              "image": "https://i.pinimg.com/originals/25/0d/a3/250da32c889b624849bf828ae2ece420.jpg",
-              "amount": "200"
-            },
-            {
-              "id": 3,
-              "quantity": 1,
-              "title": "U.S. POLO ASSN - Men's Solid Regular Fit Cotton Polo",
-              "image": "https://i.pinimg.com/564x/55/82/bc/5582bc23ad7619f10f09d10141e7a6b9.jpg",
-              "amount": "400"
-            },
-            {
-              "id": 5,
-              "quantity": 1,
-              "title": "Max Men's Slim Polo",
-              "image": "https://i.pinimg.com/564x/5a/cc/7f/5acc7f5af23bee76168f0f1fd24c75b4.jpg",
-              "amount": "400"
-            }
-          ],
-          "price": 600
-        }
-      },
-      "id": 24
     }
   ],
-  "favourites": []
+  "favourites": [{
+    "email": "rupaaksrinivas8@gmail.com",
+    "favoriteitems": [
+      {
+          "id": 1,
+          "quantity": 1,
+          "title": "EYEBOGLER Regular Fit Men's Cotton T-Shirt",
+          "image": "https://i.pinimg.com/originals/25/0d/a3/250da32c889b624849bf828ae2ece420.jpg",
+          "amount": "200"
+        },
+        {
+          "id": 2,
+          "quantity": 1,
+          "title": "RodZen - Men's Cotton Half Sleeve Regular Fit Striped T-Shirt",
+          "image": "https://i.pinimg.com/564x/55/82/bc/5582bc23ad7619f10f09d10141e7a6b9.jpg",
+          "amount": "400"
+        }
+      ]
+    },
+    {
+      "email": "johndoe@gmail.com",
+      "favoriteitems": [
+        {
+          "id": 1,
+          "quantity": 1,
+          "title": "EYEBOGLER Regular Fit Men's Cotton T-Shirt",
+          "image": "https://i.pinimg.com/originals/25/0d/a3/250da32c889b624849bf828ae2ece420.jpg",
+          "amount": "200"
+        },
+        {
+          "id": 2,
+          "quantity": 1,
+          "title": "RodZen - Men's Cotton Half Sleeve Regular Fit Striped T-Shirt",
+          "image": "https://i.pinimg.com/564x/55/82/bc/5582bc23ad7619f10f09d10141e7a6b9.jpg",
+          "amount": "400"
+        }
+      ]
+    }
+  ]
 }

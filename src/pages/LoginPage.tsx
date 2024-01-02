@@ -23,7 +23,7 @@ export default function LoginPage() {
       handleUserLogin(email, password).then((response) => {
         if (typeof response !== "string") {
           const cartitem = response.cart;
-
+          
           const userdata: UserData = {
             name: response.name,
             profilePic: response.profilePic,
@@ -31,7 +31,7 @@ export default function LoginPage() {
             password: response.password,
             email: response.email,
             cart: cartitem,
-            favorites: {
+            favorites: response.favorites || {
               email: response.email,
               favoriteitems: [],
             },
