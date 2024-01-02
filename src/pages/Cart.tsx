@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useUser, Order, OrderData } from "../context";
 import axios from "axios";
 import { IoMdCloseCircleOutline } from "react-icons/io";
+import { FaCheckCircle } from "react-icons/fa";
 
 export default function Cart() {
   const { getCart, updateCart, user } = useUser();
@@ -87,15 +88,15 @@ export default function Cart() {
                     alt={item.title}
                     className="max-w-[20%] object-cover shadow-sm"
                   />
-                  <div className="flex flex-col justify-between items-start p-4">
+                  <div className="w-full flex flex-col justify-between items-start p-4">
                     <p className="text-xl font-bold line-clamp-1">
                       {item.title}
                     </p>
-                    <p className="text-gray-500">&#8377; {item.amount}</p>
+                    <p className="text-black m-2">&#8377; {item.amount}</p>
                     <div className="w-full flex flex-row justify-between items-center">
                       <div className="flex items-center">
                         <button
-                          className="text-gray-500 px-2 py-1 border border-gray-300 rounded-md"
+                          className="text-gray-500 px-2 py-1 border border-gray-500 rounded-md"
                           onClick={() =>
                             handleQuantityChange(
                               `${item.id}`,
@@ -108,7 +109,7 @@ export default function Cart() {
                         </button>
                         <p className="text-gray-500 mx-2">{item.quantity}</p>
                         <button
-                          className="text-gray-500 px-2 py-1 border border-gray-300 rounded-md"
+                          className="text-gray-500 px-2 py-1 border border-gray-500 rounded-md"
                           onClick={() =>
                             handleQuantityChange(
                               `${item.id}`,
@@ -155,7 +156,7 @@ export default function Cart() {
           </div>
         </div>
         <button
-          className="bg-[#0478ee] w-fit text-white px-4 py-2 rounded-lg hover:cursor-pointer mt-4 disabled:opacity-50"
+          className="bg-[#0478ee] w-fit text-white px-4 py-2 rounded-lg hover:cursor-pointer mt-4 disabled:opacity-50 focus:scale-95"
           onClick={handleOrderPlaced}
           disabled={quantity === 0}
         >
@@ -163,14 +164,21 @@ export default function Cart() {
         </button>
       </div>
       <div
-        className={`fixed  justify-center items-center h-screen w-screen bg-black bg-opacity-50 ${
+        className={`absolute top-0 justify-center items-center h-screen w-screen bg-black bg-opacity-50 ${
           confirm ? "flex" : "hidden"
         }`}
+        onClick={()=> setConfirm(false)}
       >
-        <div className="bg-white rounded p-4">
+        <div className="bg-white rounded p-4"
+          onClick={(e) => e.stopPropagation()}
+        >
           <p className="text-2xl font-bold">Order Placed</p>
+          <div className="w-full flex justify-center">
+          <FaCheckCircle className="text-green-500 text-center w-[20vw] md:w-[10vw] h-auto"/>
+          </div>
           <p className="text-gray-500">
-            Your order has been placed successfully.
+            Your order has been placed successfully.<br/>
+            It will be delivered in {Math.floor(Math.random() * 5) + 1} working days.
           </p>
           <button
             className="bg-[#0478ee] w-fit text-white px-4 py-2 rounded-lg hover:cursor-pointer mt-4"

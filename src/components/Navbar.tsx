@@ -33,14 +33,14 @@ export default function Navbar() {
     console.log(user);
     localStorage.removeItem("user");
     localStorage.clear();
-    // handleShowProfile();
-    // window.location.reload();
+    handleShowProfile();
+    window.location.reload();
   };
 
   return (
     <>
       <div className="fixed flex bg-[#0478ee] text-white justify-around w-full h-auto items-center">
-        <div className="ml-4 py-3 text-2xl font-bold">ShopKart</div>
+        <div className="ml-4 py-3 text-2xl font-bold">ShopKart.</div>
         <div className="flex flex-row justify-around items-center">
           <p
             className={`mr-4 hover:cursor-pointer text-white ${
@@ -81,8 +81,8 @@ export default function Navbar() {
             />
             <p className="text-sm text-white bg-red-600 rounded-full  px-2 leading-[160%]"> {user?.cart?.items.length}</p>
           </div>
-          {/* <div
-            className={`flex items-center hover:cursor-pointer ${
+          <div
+            className={`flex items-center hover:cursor-pointer p-2 ${
               user ? "block" : "hidden"
             }`}
             onClick={handleShowProfile}
@@ -95,7 +95,7 @@ export default function Navbar() {
               }
               alt="Profile Pic"
             />
-          </div> */}
+          </div>
         </div>
       </div>
       <span className={`${showProfile ? "block" : "hidden"}`}>
@@ -103,7 +103,7 @@ export default function Navbar() {
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
               <h3>Profile</h3>
-              <FaTimes onClick={handleShowProfile} />
+              <FaTimes onClick={handleShowProfile} className="text-red-500 hover:scale-110 hover:cursor-pointer"/>
             </div>
             <div className="modal-body">
               {name !== null && (

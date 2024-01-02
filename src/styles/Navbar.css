@@ -18,7 +18,7 @@
   width: 95vw;
   max-width: 20rem;
   padding: 0.75rem;
-  background-color: #1A1A1A;
+  background-color: #ffffff;
   transition: all 0.3s ease-in-out;
   border-bottom: solid 0.25rem grey;
   border-top: solid 0.25rem grey;
@@ -29,16 +29,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font: bold 1.25rem "Poppins", sans-serif;
   transition: all 0.3s ease-in-out;
-}
-
-.modal-header svg {
-  width: 1rem;
-  height: 1rem;
-  border: none;
-  cursor: pointer;
-  transition: all 0.1s ease-in;
-  color: #ff2424;
+  color: #0478ee;
 }
 
 .modal-body {
@@ -50,31 +43,14 @@
 }
 
 .modal-message {
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .modal-message span {
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-family: monospace;
   font-weight: bold;
-  color: var(--midblue);
-}
-
-.modal-input {
-  font-size: 0.8rem;
-  font-family: "Poppins", sans-serif;
-  border-radius: 0.5rem;
-  color: var(--light);
-  padding: 0.5rem 1rem;
-  border: solid 1px var(--blue);
-  background-color: var(--dark);
-  width: 100%;
-  text-overflow: ellipsis;
-  margin-top: 0.75rem;
-}
-
-.modal-input:focus {
-  outline: none;
+  color: #0478ee;
 }
 
 .modal-buttons {
@@ -94,16 +70,9 @@
   padding: 0.5rem 1rem;
   border: none;
   font-weight: bold;
-  color: var(--light);
-}
-
-.modal-no {
-  background-color: var(--dimmer);
-  border: solid 1px var(--light) !important;
-}
-
-.modal-yes {
-  background-color: var(--bright);
+  transition: all 0.3s ease-in-out;
+  background-color: #0478ee;
+  color: #ffffff;
 }
 
 .modal-buttons button:focus {
