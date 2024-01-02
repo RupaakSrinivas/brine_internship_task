@@ -74,12 +74,16 @@ export default function Navbar() {
           >
             Login
           </a>
-          <div className="w-fit flex gap-1">
+          <div className={`w-fit flex gap-1 ${
+            user ? "block" : "hidden"
+          }`}>
             <FaShoppingCart
               className="h-6 w-auto hover:cursor-pointer text-white"
               onClick={() => Navigate("/cart")}
             />
-            <p className="text-sm text-white bg-red-600 rounded-full  px-2 leading-[160%]"> {user?.cart?.items.length}</p>
+            <p className={`text-sm text-white bg-red-600 rounded-full px-2 leading-[160%] ${
+              user?.cart?.items.length === 0 ? "hidden" : " block"
+            }`}> {user?.cart?.items.length}</p>
           </div>
           <div
             className={`flex items-center hover:cursor-pointer p-2 ${
