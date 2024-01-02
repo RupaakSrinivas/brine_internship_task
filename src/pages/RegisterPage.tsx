@@ -24,6 +24,7 @@ export default function Register() {
         const cartitem = response.cart;
 
         const userdata: UserData = {
+          id: response.id,
           name: response.name,
           profilePic: response.profilePic,
           username: response.username,

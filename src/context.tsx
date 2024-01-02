@@ -21,6 +21,7 @@ export type cartItems = {
 };
 
 export interface UserData {
+  id: number;
   name: string;
   profilePic: string;
   username: string;
@@ -40,7 +41,6 @@ export interface Order {
   orderdata: OrderData;
 };
 
-
 export interface ProductData {
   id: number;
   title: string;
@@ -48,12 +48,12 @@ export interface ProductData {
   image: string;
   amount: string;
   rating: string;
-}
+};
 
 export interface FavoritesData {
   email: string;
   favoriteitems: cartItem[];
-}
+};
 
 interface UserContextType {
   user: UserData | null;
@@ -107,9 +107,7 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({
   };
 
   return (
-    <UserContext.Provider value={contextValue}>
-      {children}
-    </UserContext.Provider>
+    <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>
   );
 };
 

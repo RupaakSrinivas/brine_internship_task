@@ -3,6 +3,7 @@ import { FaHeart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useUser, ProductData, FavoritesData } from "../context";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function ItemComponent(data: ProductData) {
   const { user, getCart, updateCart, updateFavorites } = useUser();
@@ -52,7 +53,14 @@ export default function ItemComponent(data: ProductData) {
       });
     }
     cart.items = items;
+    const Data = {
+      "cart":{
+        items: items,
+        price: cart.price,
+      },
+      }
     updateCart(cart);
+    axios.put(process.env.REACT_APP_API_BASEURL + `users/${user?.id}`, Data);
   };
 
   const handleFavoriteToggle = () => {
@@ -78,6 +86,7 @@ export default function ItemComponent(data: ProductData) {
       favoriteitems: items,
     };
     updateFavorites(Data);
+    axios.put(process.env.REACT_APP_API_BASEURL + `favourites/${user?.id}`, Data);
   };
 
   return (
