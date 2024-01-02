@@ -15,7 +15,7 @@ export async function handleUserLogin(
             const favouriteData = favouriteResponse.data[0];
             userData.favorites = favouriteData;
             console.log(userData, "userData");
-            if (userData) {
+            if (userData.password === password) {
                 resolve(userData);
                 console.log(response, "response");
             } else {

@@ -12,8 +12,8 @@ export default function Navbar() {
   const [showProfile, setShowProfile] = useState(false);
   const Navigate = useNavigate();
 
-  const handleShowProfile = () => {
-    setShowProfile(!showProfile);
+  const handleShowProfile = (value?: boolean) => {
+    setShowProfile(value !== undefined ? value : !showProfile);
   };
 
   //disable scroll when profile is open
@@ -33,7 +33,7 @@ export default function Navbar() {
     console.log(user);
     localStorage.removeItem("user");
     localStorage.clear();
-    handleShowProfile();
+    handleShowProfile(false);
     window.location.reload();
   };
 
@@ -85,7 +85,7 @@ export default function Navbar() {
             className={`flex items-center hover:cursor-pointer p-2 ${
               user ? "block" : "hidden"
             }`}
-            onClick={handleShowProfile}
+            onClick={() => handleShowProfile()}
           >
             <img
               className="h-10 w-10 rounded-full"
@@ -99,11 +99,11 @@ export default function Navbar() {
         </div>
       </div>
       <span className={`${showProfile ? "block" : "hidden"}`}>
-        <div className="modal" onClick={handleShowProfile}>
+        <div className="modal" onClick={() => handleShowProfile()}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
               <h3>Profile</h3>
-              <FaTimes onClick={handleShowProfile} className="text-red-500 hover:scale-110 hover:cursor-pointer"/>
+              <FaTimes onClick={() => handleShowProfile()} className="text-red-500 hover:scale-110 hover:cursor-pointer"/>
             </div>
             <div className="modal-body">
               {name !== null && (

@@ -32,7 +32,16 @@ export default function Cart() {
   }, [getCart]);
 
   const handleOrderPlaced = () => {
-    updateCart({ items: [], price: 0 });
+    const cart = { items: [], price: 0 };
+    updateCart(cart);
+    const Data = {
+      cart: {
+        items: [],
+        price: 0,
+      },
+    };
+    axios.put(process.env.REACT_APP_API_BASEURL + `users/${user?.id}`, Data);
+
     const orderdata: OrderData = {
       orderid: Math.floor(Math.random() * 10000000),
       cart: cartItems,
@@ -65,7 +74,15 @@ export default function Cart() {
     );
 
     const newPrice = Math.max(updatedPrice, 0);
-    updateCart({ items: updatedItems, price: newPrice });
+    const cart = { items: updatedItems, price: newPrice };
+    updateCart(cart);
+    const Data = {
+      cart: {
+        items: updatedItems,
+        price: newPrice,
+      },
+    };
+    axios.put(process.env.REACT_APP_API_BASEURL + `users/${user?.id}`, Data);
   };
 
   return (
@@ -120,7 +137,8 @@ export default function Cart() {
                           +
                         </button>
                       </div>
-                      <IoMdCloseCircleOutline className="h-full text-2xl text-red-600 w-auto hover:scale-110 hover:cursor-pointer"
+                      <IoMdCloseCircleOutline
+                        className="h-full text-2xl text-red-600 w-auto hover:scale-110 hover:cursor-pointer"
                         onClick={() => handleQuantityChange(`${item.id}`, 0)}
                       />
                     </div>
@@ -167,18 +185,21 @@ export default function Cart() {
         className={`absolute top-0 justify-center items-center h-screen w-screen bg-black bg-opacity-50 ${
           confirm ? "flex" : "hidden"
         }`}
-        onClick={()=> setConfirm(false)}
+        onClick={() => setConfirm(false)}
       >
-        <div className="bg-white rounded p-4"
+        <div
+          className="bg-white rounded p-4"
           onClick={(e) => e.stopPropagation()}
         >
           <p className="text-2xl font-bold">Order Placed</p>
           <div className="w-full flex justify-center">
-          <FaCheckCircle className="text-green-500 text-center w-[20vw] md:w-[10vw] h-auto"/>
+            <FaCheckCircle className="text-green-500 text-center w-[20vw] md:w-[10vw] h-auto" />
           </div>
           <p className="text-gray-500">
-            Your order has been placed successfully.<br/>
-            It will be delivered in {Math.floor(Math.random() * 5) + 1} working days.
+            Your order has been placed successfully.
+            <br />
+            It will be delivered in {Math.floor(Math.random() * 5) + 1} working
+            days.
           </p>
           <button
             className="bg-[#0478ee] w-fit text-white px-4 py-2 rounded-lg hover:cursor-pointer mt-4"

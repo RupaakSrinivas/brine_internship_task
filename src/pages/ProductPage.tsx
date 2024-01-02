@@ -51,6 +51,13 @@ export default function ProductPage() {
     }
     cart.items = items;
     updateCart(cart);
+    const Data = {
+      "cart":{
+        items: items,
+        price: cart.price,
+      },
+      }
+    axios.put(process.env.REACT_APP_API_BASEURL + `users/${user?.id}`, Data);
   };
 
   return (
@@ -70,6 +77,7 @@ export default function ProductPage() {
           <FaHeart
             id="favorite"
             className="h-6 w-auto hover:cursor-pointer text-gray-500"
+            // onClick={handleFavoriteToggle}
           />
         </div>
         <p className="text-sm text-gray-500 mt-4">{product.description}</p>
