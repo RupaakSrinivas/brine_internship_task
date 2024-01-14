@@ -13,7 +13,7 @@ import FavoritesPage from "./pages/FavoritesPage";
 
 const App: React.FC = () => {
   const { login } = useUser();
-  
+
   useEffect(() => {
     document.title = "E-Commerce";
     const storedUserData = localStorage.getItem("user");
@@ -24,8 +24,14 @@ const App: React.FC = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (document.documentElement.classList.contains("in-app-browser")) {
+      window.alert("Please use a seperate browser for better experience");
+    }
+  }, []);
+
   return (
-    <Router >
+    <Router>
       <Template>
         <Routes>
           <Route path="/" element={<GuardedRoute />}>
